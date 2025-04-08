@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "4eaf0726-05ea-4464-a30b-77bb6291047c",
+		"name": "TXN_WORKFLOW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30742092",
+		"_collection_link": "https://bold-space-601501.postman.co/workspace/Team-Workspace~dde3da44-3152-4a42-8aef-255dbae235f4/collection/30742092-4eaf0726-05ea-4464-a30b-77bb6291047c?action=share&source=collection_link&creator=30742092"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "sign-in",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\n//     \"username\": \"raju\",\n//     \"password\": \"123\"\n// }\n\n{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}   \n\n// {\n//     \"username\": \"ajay\",\n//     \"password\": \"1234\"\n// }  \n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/sign-in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-out",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/sign-out",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"sign-out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOnsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9LCJpYXQiOjE3MzI1NDI5NjIsImV4cCI6MTczMjU0NjU2Mn0.QLHarQ_wJQxOo8alEVMeHwdsiNrC87QEImZ461V_hUk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"ajay\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWp1IiwiYXV0aCI6eyJhdXRob3JpdHkiOiJST0xFX0NMSUVOVCJ9LCJpYXQiOjE3MzI1NDAyNTMsImV4cCI6MTczMjU0Mzg1M30._vtJ4jSCV1mBHWWdDDiVWYHtvmC6TbCDYKQKeWxJMls",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"raju\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/txn-app/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"txn-app",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TXN",
+			"item": [
+				{
+					"name": "txn-post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOnsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9LCJpYXQiOjE3MzI1OTQ4NzgsImV4cCI6MTczMjU5ODQ3OH0.5Q5zJ8TenfWzCb_NQqmXMNdORDeNScz-nH7eggz1oao",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bankCode\": \"FDRL\",\n    \"network\": \"MASTERCARD\",\n    \"uniqueId\": \"0339cfa0-62a7-4d3e-9050-7e430bc46c3c\",\n    \"mti\": \"0110\",\n    \"cardNumber\": \"02315654566465\",\n    \"tokenIdentifier\": \"9eb75a5b143e4112a1ff26aec3d57c7d\",\n    \"amountTransaction\": \"500\",\n    \"txnDateTime\": \"2024-12-10T15:30:00+00:00\",\n    \"stan\": \"001024\",\n    \"localTxnTime\": \"14:30:00\",\n    \"localTxnDate\":  \"2024-11-23T15:30:00+00:00\",\n    \"expiryDate\":  \"2024-11-23T15:30:00+00:00\",\n    \"mcc\": \"5411\",\n    \"retRefNumber\": \"424810001024\",\n    \"serviceRestrictionCode\": \"101\",\n    \"cardAcceptorTid\": \"00001234\",\n    \"cardAcceptorId\": \"000000000012345\",\n    \"cardAcceptorName\": \"Test Merchant\",\n    \"cardAcceptorStreetAddress\": \"Test Address\",\n    \"cardAcceptorCity\": \"kottayam\",\n    \"cardAcceptorStateCode\": \"KL\", \n    \"cardAcceptorCountryCode\": \"IND\",\n    \"cardAcceptorPinCode\": \"610021\",\n    \"txnCurrencyCode\": \"356\",\n    \"txnSource\": \"POS\",\n    \"txnStatus\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/txn/post",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"txn",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "txn-hostory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOnsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9LCJpYXQiOjE3MzI1OTQ4NzgsImV4cCI6MTczMjU5ODQ3OH0.5Q5zJ8TenfWzCb_NQqmXMNdORDeNScz-nH7eggz1oao",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"txnStartDate\": \"2024-12-01T15:30:00+00:00\",\n    \"txnEndDate\": \"2024-12-10T15:30:00+00:00\",\n    \"txnStatus\": \"SUCCESSFUL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/txn/history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"txn",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "txn-initiate-refund",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOnsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTiJ9LCJpYXQiOjE3MzI1OTQ4NzgsImV4cCI6MTczMjU5ODQ3OH0.5Q5zJ8TenfWzCb_NQqmXMNdORDeNScz-nH7eggz1oao",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/txn/ini-refund/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"txn",
+								"ini-refund",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
